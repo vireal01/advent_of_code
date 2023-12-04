@@ -8,5 +8,3 @@ for line in f:
     ans.append(int(value[0] + value[-1]))
 print(ans)
 print(functools.reduce(lambda a, b: a+b, ans))
-
-

@@ -1,6 +1,8 @@
 import re
 
 max_possible_values = {"red": 12, "green": 13, "blue": 14}
+
+
 # 12 red cubes, 13 green cubes, and 14 blue cubes
 
 def get_score(score_log: str):
@@ -31,12 +33,10 @@ def get_game_data_array(set_data):
 def is_game_possible(game_data_array: list[str, list]):
     for set in game_data_array[1]:
         for (color, number) in set.items():
-            # print(game_data_array[0] + " game is impossible due to " + color + " " + str(number) + ">" + str(max_possible_values[color]))
-            # print(max_possible_values[color])
             if number > max_possible_values[color]:
-                # print(game_data_array[0] + " game is impossible due to" + number + ">" + max_possible_values[color])
                 return 0
     return int(game_data_array[0])
+
 
 # step 2
 def get_fewest_cubes_for_game(game_data_array: list[str, list]):
@@ -46,6 +46,7 @@ def get_fewest_cubes_for_game(game_data_array: list[str, list]):
             if number >= min_cubes_required[color]:
                 min_cubes_required[color] = number
     return min_cubes_required
+
 
 def get_multiplied_value(fewest_cubes_for_game):
     ans = 1
@@ -58,7 +59,8 @@ f = open("../day_two_data.txt", "rt", encoding="utf8")
 ans_step_one = 0
 ans_step_two = 0
 for line in f:
-    # ans_step_one += is_game_possible(get_game_data_array(line))
+    ans_step_one += is_game_possible(get_game_data_array(line))
     ans_step_two += get_multiplied_value(get_fewest_cubes_for_game(get_game_data_array(line)))
 
+print(ans_step_one)
 print(ans_step_two)
