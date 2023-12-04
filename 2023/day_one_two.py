@@ -14,8 +14,6 @@ for line in f:
                 if new_line[i:].startswith(key):
                     new_line = new_line.replace(key, str(value), 1)
 
-    # for (key, value) in dict.items():
-    #     new_line = new_line.replace(key, str(value))
     row = re.compile('\D').sub('', new_line)
     value_to_append = int(row[0] + row[-1])
 

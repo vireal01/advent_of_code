@@ -35,10 +35,8 @@ def calculate_ans():
                     first_index_of_digit = -1
                     is_counting_digit = False
                     digit_as_string = ""
-        # it's ok
 
     for symbols_cord in symbols_cords:
-        # print(symbols_cord)
         value1 = 0
         value2 = 0
         star_neighbors_cords = get_possible_number_locations(symbols_cord[1], symbols_cord[0])
@@ -73,13 +71,11 @@ def calculate_number_cords(first_index_of_digit, last_index_of_digit, line_coine
 
 def get_possible_number_locations(star_x_cord, line_coiner):
     possible_number_locations = [[line_coiner - 1, star_x_cord - 1], [line_coiner, star_x_cord - 1],
-            [line_coiner + 1, star_x_cord - 1], [line_coiner - 1, star_x_cord],
-            [line_coiner + 1, star_x_cord], [line_coiner, star_x_cord],
-            [line_coiner - 1, star_x_cord + 1], [line_coiner, star_x_cord + 1],
-            [line_coiner + 1, star_x_cord + 1]]
+                                 [line_coiner + 1, star_x_cord - 1], [line_coiner - 1, star_x_cord],
+                                 [line_coiner + 1, star_x_cord], [line_coiner, star_x_cord],
+                                 [line_coiner - 1, star_x_cord + 1], [line_coiner, star_x_cord + 1],
+                                 [line_coiner + 1, star_x_cord + 1]]
     return list(map(lambda x: str(x), possible_number_locations))
 
 
 print(calculate_ans())
-# 33693665 - too low
-# 78236071?
